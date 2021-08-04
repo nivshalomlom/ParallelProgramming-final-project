@@ -34,7 +34,6 @@ int main(int argc, char** argv)
 		readFromFile(weights, seq1, seq2, &direction, "input.txt");
 	
 		// send the input data to each process
-#pragma omp parallel for
 		for (int i = 1; i < num_proc; i++)
 		{
 			MPI_Send(seq1, SEQ1_SIZE, MPI_CHAR, i, WORK_TAG, MPI_COMM_WORLD);
